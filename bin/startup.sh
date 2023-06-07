@@ -14,16 +14,16 @@ if [ -n "${PANDORA_ACCESS_TOKEN}" ]; then
   echo "${PANDORA_ACCESS_TOKEN}" >"${USER_CONFIG_DIR}/access_token.dat"
 fi
 
+if [ -n "${PANDORA_TOKENS_FILE}" ]; then
+  PANDORA_ARGS="${PANDORA_ARGS} --tokens_file ${PANDORA_TOKENS_FILE}"
+fi
+
 if [ -n "${PANDORA_SERVER}" ]; then
   PANDORA_ARGS="${PANDORA_ARGS} -s ${PANDORA_SERVER}"
 fi
 
 if [ -n "${PANDORA_API}" ]; then
   PANDORA_ARGS="${PANDORA_ARGS} -a"
-fi
-
-if [ -n "${PANDORA_LOGIN_LOCAL}" ]; then
-  PANDORA_ARGS="${PANDORA_ARGS} -l"
 fi
 
 if [ -n "${PANDORA_SENTRY}" ]; then
